@@ -2,21 +2,23 @@
 #define MQTTCLIENT_H
 
 #include <QDialog>
+#include <memory>
 
-namespace Ui {
-class MqttClient;
-}
+
 
 class MqttClient : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit MqttClient(QWidget *parent = 0);
+    explicit MqttClient(QWidget* parent = nullptr);
     ~MqttClient();
 
 private:
-    Ui::MqttClient *ui;
+    struct Data;
+    std::unique_ptr<Data> d;
 };
+
+
 
 #endif // MQTTCLIENT_H
