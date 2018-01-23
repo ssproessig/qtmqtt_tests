@@ -17,6 +17,7 @@ add_executable(
     MqttClient.ui
     MqttClient.h
     MqttClient.cpp
+    README.md
 )
 target_link_libraries(
     ${P_NAME}
