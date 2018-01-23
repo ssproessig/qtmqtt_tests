@@ -58,6 +58,7 @@ struct MqttClient::Data
         });
         connect(c, &QMqttClient::disconnected, [this]()
         {
+            mqttClient->unsubscribe(Constants::topicFilter);
             qDebug() << "Disconnected!";
             ui->tabWidget->setCurrentWidget(ui->tabConnection);
         });
