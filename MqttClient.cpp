@@ -44,7 +44,16 @@ struct MqttClient::Data
             auto subscription = mqttClient->subscribe(Constants::topicFilter, 0);
             connect(subscription, &QMqttSubscription::messageReceived, [&](const QMqttMessage & message)
             {
-                ui->lbReceived->setText(message.payload());
+                QPixmap px;
+
+                if (px.loadFromData(message.payload(), "PNG"))
+                {
+                    ui->lbReceived->setPixmap(px);
+                }
+                else
+                {
+                    ui->lbReceived->setText(message.payload());
+                }
             });
         });
         connect(c, &QMqttClient::disconnected, [this]()
