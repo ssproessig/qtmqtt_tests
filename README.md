@@ -41,7 +41,7 @@ velociraptor:tmp ssp$ diff -u Qt5MqttConfig.cmake.orig Qt5MqttConfig.cmake
 Make sure CMake 3.9 (`cmake` binary) and Qt >= 5.9 (`qmake` binary) are on the `PATH`.
 ```
 $>  cd qtmqtt_test
-$>  cd .. && mkdir build
+$>  cd .. && mkdir build && cd build
 $>  cmake ../qtmqtt_test
 $>  cmake --build .
 $>  ./test_qtmqtt
